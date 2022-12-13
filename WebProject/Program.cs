@@ -15,6 +15,11 @@ builder.Services.AddDefaultIdentity<UserDetails>(options => options.SignIn.Requi
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+/*builder.Services.AddIdentity<UserDetails, IdentityRole>()
+    .AddDefaultTokenProviders()
+    .AddDefaultUI()
+    .AddEntityFrameworkStores<ApplicationDbContext>();*/
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
