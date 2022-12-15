@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WebProject.Data;
 using WebProject.Models;
 
 namespace WebProject.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class MessageController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -54,5 +56,13 @@ namespace WebProject.Controllers
             _context.SaveChanges();
             return RedirectToAction(nameof(EditMessages));
         }
+
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            var details = _context.Messages.Find(id);
+            return View(details);
+        }
+       
     }
 }

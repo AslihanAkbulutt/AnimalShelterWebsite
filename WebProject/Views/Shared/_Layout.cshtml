@@ -34,16 +34,23 @@
                     </span>
                 </a>
             </li>
-            <li class="menu-nav-item">
-                <div style="background-color: rgb(26 30 35); " class="w3-dropdown-hover">
-                    <button class="w3-button menu-nav-link" >Admin</button>
-                    <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                        <a asp-area="" asp-controller="Admin" asp-action="EditUsers" class="w3-bar-item w3-button">Edit Users</a>
-                        <a asp-area="" asp-controller="Admin" asp-action="EditAnimals" class="w3-bar-item w3-button">Edit Animals</a>
-                        <a asp-area="" asp-controller="Message" asp-action="EditMessages" class="w3-bar-item w3-button">Edit Messages</a>
-                    </div>
-                </div>
-            </li>
+            @if(User.Identity.IsAuthenticated)
+            {
+                if(User.IsInRole("Admin"))
+                {
+                    <li class="menu-nav-item">
+                        <div style="background-color: rgb(26 30 35); " class="w3-dropdown-hover">
+                            <button class="w3-button menu-nav-link">Admin</button>
+                            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                                <a asp-area="" asp-controller="Admin" asp-action="EditUsers" class="w3-bar-item w3-button">Edit Users</a>
+                                <a asp-area="" asp-controller="Admin" asp-action="EditAnimals" class="w3-bar-item w3-button">Edit Animals</a>
+                                <a asp-area="" asp-controller="Message" asp-action="EditMessages" class="w3-bar-item w3-button">Edit Messages</a>
+                            </div>
+                        </div>
+                    </li>
+                }
+            }
+            
             <partial name="_LoginPartial" />
         </ul>
         

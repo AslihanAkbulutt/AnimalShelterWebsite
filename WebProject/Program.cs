@@ -11,14 +11,14 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<UserDetails>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
-builder.Services.AddControllersWithViews();
-
-/*builder.Services.AddIdentity<UserDetails, IdentityRole>()
+builder.Services.AddIdentity<UserDetails, IdentityRole>()
     .AddDefaultTokenProviders()
     .AddDefaultUI()
-    .AddEntityFrameworkStores<ApplicationDbContext>();*/
+    .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddControllersWithViews();
+
+
 
 var app = builder.Build();
 
@@ -44,7 +44,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=About}/{action=Index}/{id?}");
 app.MapRazorPages();
 
 app.Run();

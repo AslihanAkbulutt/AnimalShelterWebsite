@@ -4,7 +4,8 @@ using WebProject.Data;
 using WebProject.Models;
 
 namespace WebProject.Controllers
-{ 
+{
+    [Authorize(Roles ="Admin")] 
     
     public class AdminController : Controller
     {
@@ -78,6 +79,12 @@ namespace WebProject.Controllers
             _context.Update(a);
             _context.SaveChanges();
             return RedirectToAction(nameof(EditAnimals));
+        }
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            var details = _context.Animals.Find(id);
+            return View(details);
         }
     }
 }
