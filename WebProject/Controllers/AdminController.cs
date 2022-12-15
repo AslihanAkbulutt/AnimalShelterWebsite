@@ -19,50 +19,7 @@ namespace WebProject.Controllers
             return View();
         }
         //-------------------------------------------------------
-        public IActionResult EditMessages()
-        {
-            List<Message> list = _context.Messages.ToList();
-            return View(list);
-        }
-
-        [HttpPost]
-        public IActionResult CreateM(Message m)
-        {
-            Message message = new Message();
-                        
-            _context.Add(message);
-            _context.SaveChanges();
-            return RedirectToAction(nameof(EditMessages));
-
-        }
-        [HttpGet]
-        public IActionResult CreateM()
-        {
-            return View();
-        }
-
-
-        public async Task<IActionResult> DeleteM(int id)
-        {
-            var delete = await _context.Messages.FindAsync(id);
-            _context.Remove(delete);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(EditMessages));
-        }
-        [HttpGet]
-        public IActionResult EditM(int id)
-        {
-            var edit = _context.Messages.Find(id);
-            return View(edit);
-        }
-        [HttpPost]
-        public IActionResult EditM(Message m)
-        {
-            _context.Update(m);
-            _context.SaveChanges();
-            return RedirectToAction(nameof(EditMessages));
-        }
-
+        
 
         //_--------------------------------------------------
         public IActionResult EditAnimals()
