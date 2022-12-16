@@ -40,7 +40,7 @@
             <img src= @item.Image alt="animal" style="width:100%">
                <h3>@item.Breed</h3>
                 <p>@item.Age Years Old<br />@item.Info</p>
-                <button style="margin-left:8px" type="submit" class="btn">Adopt</button>
+            <div style="background-color:black; border-radius:5px; margin:10px,10px,10px,10px"><a style="margin-left:110px; font-size:25px;color:white;" asp-action="AdoptForm" asp-route-id="@item.Id">Adopt</a></div>
             </div>
         }
 

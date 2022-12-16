@@ -8,6 +8,8 @@ namespace WebProject.Data
     {
         public DbSet<Animal> Animals { get; set; }
         public DbSet<Message> Messages { get; set; }
+        public DbSet<Application> Applications { get; set; }
+        public DbSet<Adopted> Adoptees { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

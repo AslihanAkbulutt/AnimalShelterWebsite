@@ -1,5 +1,86 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model WebProject.Models.Message
+<style>
+    .myslide{
+        display:none;
+    }
+</style>
+<!-- Top menu -->
+<div class="w3-top">
+    <div class="w3-white w3-xlarge" style="max-width:1535px">
+        <div class="w3-button w3-padding-16 w3-left"></div>
+        <div class="w3-right w3-padding-16"></div>
+        <div class="w3-center w3-padding-16" style="padding-top:10px">Home Page</div>
+    </div>
+</div>
+<div class="myslide">
+    <img src="~/img/back2.jpg" style="width:100%"/>
+    <h1 style="w3-display-middle w3-margin-top w3-center">Animal Shelter</h1>
+</div>
+<div class="myslide">
+    <img src="~/img/back3.jpg" style="width:100%" />
+</div>
+<div class="myslide">
+    <img src="~/img/back4.jpg" style="width:100%" />
+</div>
+<!--<partial name="~/Views/About/Partial/ContactPartial.cshtml" />-->
+
+
+<div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+    <h2 class="w3-wide w3-center">CONTACT</h2>
+    <p class="w3-opacity w3-center"><i>Have Question? Drop a note!</i></p>
+    <div class="w3-row w3-padding-32">
+        <div class="w3-col m6 w3-large w3-margin-bottom">
+            <i class="fa fa-map-marker" style="width:30px"></i> Chicago, US<br>
+            <i class="fa fa-phone" style="width:30px"></i> Phone: +00 151515<br>
+            <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
+        </div>
+        <div class="w3-col m6">
+            <form asp-action="Index" asp-controller="About" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Mail" class="control-label"></label>
+                    <input asp-for="Mail" class="form-control" />
+                    <span asp-validation-for="Mail" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Messages" class="control-label"></label>
+                    <input asp-for="Messages" class="form-control" />
+                    <span asp-validation-for="Messages" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="SEND" class="w3-button w3-black w3-section" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
+<script>
+    // Automatic Slideshow - change image every 4 seconds
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+      var i;
+      var x = document.getElementsByClassName("myslide");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      myIndex++;
+      if (myIndex > x.length) {myIndex = 1}
+      x[myIndex-1].style.display = "block";
+      setTimeout(carousel, 4000);
+    }
+
+</script>

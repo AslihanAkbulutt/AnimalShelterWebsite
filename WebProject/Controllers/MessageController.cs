@@ -63,6 +63,7 @@ namespace WebProject.Controllers
             var details = _context.Messages.Find(id);
             return View(details);
         }
-       
+        
+
     }
 }

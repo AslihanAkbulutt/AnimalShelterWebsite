@@ -1,0 +1,36 @@
+﻿@model WebProject.Models.Message
+
+<div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+    <h2 class="w3-wide w3-center">CONTACT</h2>
+    <p class="w3-opacity w3-center"><i>Have Question? Drop a note!</i></p>
+    <div class="w3-row w3-padding-32">
+        <div class="w3-col m6 w3-large w3-margin-bottom">
+            <i class="fa fa-map-marker" style="width:30px"></i> Chicago, US<br>
+            <i class="fa fa-phone" style="width:30px"></i> Phone: +00 151515<br>
+            <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
+        </div>
+        <div class="w3-col m6">
+            <form asp-action="AddMessage" asp-controller="About" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+                    <div class="w3-half">
+                        <input asp-for="Name" class="w3-input w3-border" placeholder="Name" required name="Name">
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="w3-half">
+                        <input asp-for="Mail" class="w3-input w3-border" placeholder="Mail" required name="Mail">
+                        <span asp-validation-for="Mail" class="text-danger"></span>
+                    </div>
+                </div>
+                <input asp-for="Messages" class="w3-input w3-border" placeholder="Message" required name="Message">
+                <span asp-validation-for="Messages" class="text-danger"></span>
+                <input type="submit" value="Create" class="w3-button w3-black w3-section w3-right" />
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
