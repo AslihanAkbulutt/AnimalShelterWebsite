@@ -19,10 +19,7 @@ namespace WebProject.Controllers
         {
             return View();
         }
-        //-------------------------------------------------------
         
-
-        //_--------------------------------------------------
         public IActionResult EditAnimals()
         {
             List<Animal> list = _context.Animals.ToList();
@@ -59,7 +56,6 @@ namespace WebProject.Controllers
             return View();
         }
 
-        
         public async Task<IActionResult> Delete(int id)
         {
             var delete = await _context.Animals.FindAsync(id);
