@@ -17,6 +17,7 @@ namespace WebProject.Controllers
         public AdoptionController(ApplicationDbContext context,ApplicationDbContext context2)
         {
             _context = context;
+
             _context2 = context2;
         }
         
