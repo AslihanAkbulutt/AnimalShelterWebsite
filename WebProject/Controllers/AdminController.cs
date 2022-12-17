@@ -27,9 +27,9 @@ namespace WebProject.Controllers
         }
         
         [HttpPost]
-        public IActionResult Create(AnimalAdd a)
+        public IActionResult Create(Animal a)
         {
-            Animal animal = new Animal();
+            /*Animal animal = new Animal();
             if (a.Image != null)
             {
                 var extension = Path.GetExtension(a.Image.FileName);
@@ -42,9 +42,9 @@ namespace WebProject.Controllers
             animal.Breed = a.Breed;
             animal.Age = a.Age;
             animal.Info = a.Info;
-            animal.CorD = a.CorD;
+            animal.CorD = a.CorD;*/
 
-            _context.Add(animal);
+            _context.Add(a);
             _context.SaveChanges();
             return RedirectToAction(nameof(EditAnimals));
 

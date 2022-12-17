@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using WebProject.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace WebProject.Controllers
 {
@@ -11,15 +12,44 @@ namespace WebProject.Controllers
         public static int Id = 0;
        
         private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context2;
 
-        public AdoptionController(ApplicationDbContext context)
+        public AdoptionController(ApplicationDbContext context,ApplicationDbContext context2)
         {
             _context = context;
+            _context2 = context2;
         }
-        public IActionResult Index()
+        
+        [HttpGet]
+        public IActionResult Index(int? id)
         {
-            List<Animal> list = _context.Animals.ToList();
-            return View(list);
+            if (id == 0)
+            {
+                var list = _context.Animals.ToList();
+                return View(list);
+            }
+            else if (id == 1)
+            {
+                var list = _context.Animals.Where(a => a.CorD == true).ToList();
+                return View(list);
+            }
+            else if(id == 2)
+            {
+                var list = _context.Animals.Where(a => a.CorD == false).ToList();
+                return View(list);
+            }
+            else
+            {
+                var list = _context.Animals.ToList();
+                return View(list);
+            }
+            
+        }
+        public IActionResult Cats()
+        {
+            var list = _context.Animals.Where(a => a.CorD == true).ToList();
+                return View(list);
+
         }
         [HttpGet]
         public IActionResult AdoptForm(int id)
@@ -43,6 +73,7 @@ namespace WebProject.Controllers
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
+       
 
 
     }
