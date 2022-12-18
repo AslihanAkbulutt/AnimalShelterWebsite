@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<WebProject.Models.Animal>
 
 @{
-    ViewData["Title"] = "AdminEdit";
+    ViewData["Title"] = "Listed Animals";
 }
-
-<h1>AdminEdit</h1>
+<link href="~/css/admin.css" rel="stylesheet" />
+<h1>Listed Animals</h1>
 
 <p>
-    <a style="margin-left:100px" asp-action="Create">Create New</a>
+    <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
