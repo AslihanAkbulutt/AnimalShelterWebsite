@@ -23,7 +23,6 @@ namespace WebProject.Controllers
             _context.Add(m);
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
-
         }
     }
 }

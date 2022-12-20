@@ -44,6 +44,7 @@ namespace WebProject.Controllers
                 var list = _context.Animals.ToList();
                 return View(list);
             }
+
             
         }
         public IActionResult Cats()
