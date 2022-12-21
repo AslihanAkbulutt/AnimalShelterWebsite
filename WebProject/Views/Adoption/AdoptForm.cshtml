@@ -3,31 +3,33 @@
     ViewData["Title"] = "Application";
 }
 <link href="~/css/admin.css" rel="stylesheet" />
-<h1>Create</h1>
 
-<h4>Application</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="AdoptForm" asp-controller="Adoption" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+<form  class="login-form" asp-action="AdoptForm" asp-controller="Adoption" method="post">
+    <h1 style="color:white">Adopt Form</h1>
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="w3-row ">
+        <div style=" padding-right:20px" class="w3-col m6">
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
-            
+
             <div class="form-group">
                 <label asp-for="LastName" class="control-label"></label>
                 <input asp-for="LastName" class="form-control" />
                 <span asp-validation-for="LastName" class="text-danger"></span>
             </div>
-            
+
             <div class="form-group">
                 <label asp-for="UserName" class="control-label"></label>
                 <input asp-for="UserName" class="form-control" />
                 <span asp-validation-for="UserName" class="text-danger"></span>
             </div>
+        </div>
+        <div style=" padding-left:20px" class="w3-col m6">
             <div class="form-group">
                 <label asp-for="Adress" class="control-label"></label>
                 <input asp-for="Adress" class="form-control" />
@@ -43,18 +45,16 @@
                 <input asp-for="Explanation" class="form-control" />
                 <span asp-validation-for="Explanation" class="text-danger"></span>
             </div>
-
-            <div class="form-group">
-                <input type="submit" value="SEND" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
 
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div class="form-group">
+        
+        <input type="submit" value="SEND" class="btn btn-primary" />
+        <a asp-action="Index">Back to Adoption Page</a>
+    </div>
+</form>
+ 
 
 @section Scripts {
     @{
