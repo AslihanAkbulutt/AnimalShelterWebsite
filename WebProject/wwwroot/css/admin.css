@@ -10,6 +10,7 @@ body {
     background-color:black;
     font-family: 'Times New Roman', Times, serif;
 }
+
 table {
     font-family: 'Times New Roman', Times, serif;
     display: flex;
@@ -29,6 +30,7 @@ table {
     padding: 12px 93px;
     color: white;
 }
+
 a{
     color: teal;
     font-size:18px;
@@ -36,6 +38,7 @@ a{
 a:hover{
     color:white;
 }
+
 .login-form {
     font-family: 'Times New Roman', Times, serif;
     display: flex;
@@ -47,7 +50,6 @@ a:hover{
     
    
 }
-
     .login-form .control-label {
         margin: 0 0 10px 0;
     }
