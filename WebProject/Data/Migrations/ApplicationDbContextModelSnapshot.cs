@@ -179,7 +179,7 @@ namespace WebProject.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Adoptees");
+                    b.ToTable("Adoptees", (string)null);
                 });
 
             modelBuilder.Entity("WebProject.Models.Animal", b =>
@@ -210,7 +210,7 @@ namespace WebProject.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Animals");
+                    b.ToTable("Animals", (string)null);
                 });
 
             modelBuilder.Entity("WebProject.Models.Application", b =>
@@ -250,7 +250,7 @@ namespace WebProject.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Applications");
+                    b.ToTable("Applications", (string)null);
                 });
 
             modelBuilder.Entity("WebProject.Models.Message", b =>
@@ -275,7 +275,7 @@ namespace WebProject.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Messages");
+                    b.ToTable("Messages", (string)null);
                 });
 
             modelBuilder.Entity("WebProject.Models.UserDetails", b =>

@@ -12,47 +12,21 @@ namespace WebProject.Controllers
         public static int Id = 0;
        
         private readonly ApplicationDbContext _context;
-        private readonly ApplicationDbContext _context2;
+        
 
-        public AdoptionController(ApplicationDbContext context,ApplicationDbContext context2)
+        public AdoptionController(ApplicationDbContext context)
         {
             _context = context;
-
-            _context2 = context2;
+          
         }
         
-        [HttpGet]
-        public IActionResult Index(int? id)
+       
+        public IActionResult Index()
         {
-            if (id == 0)
-            {
-                var list = _context.Animals.ToList();
-                return View(list);
-            }
-            else if (id == 1)
-            {
-                var list = _context.Animals.Where(a => a.CorD == true).ToList();
-                return View(list);
-            }
-            else if(id == 2)
-            {
-                var list = _context.Animals.Where(a => a.CorD == false).ToList();
-                return View(list);
-            }
-            else
-            {
-                var list = _context.Animals.ToList();
-                return View(list);
-            }
-
-            
+           var list = _context.Animals.ToList();
+           return View(list);
         }
-        public IActionResult Cats()
-        {
-            var list = _context.Animals.Where(a => a.CorD == true).ToList();
-                return View(list);
-
-        }
+        
         [HttpGet]
         public IActionResult AdoptForm(int id)
         {

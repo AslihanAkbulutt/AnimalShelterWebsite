@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 using WebProject.Data;
 using WebProject.Models;
 
@@ -8,9 +9,12 @@ namespace WebProject.Controllers
     public class AboutController : Controller
     {
         private readonly ApplicationDbContext _context;
-        public AboutController(ApplicationDbContext context)
+        private readonly IStringLocalizer<AboutController> _localizer;
+        public AboutController(ApplicationDbContext context, IStringLocalizer<AboutController> localizer)
         {
             _context = context;
+            _localizer = localizer;
+
         }
         [HttpGet]
         public IActionResult Index()
