@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
+using System.Drawing;
 using WebProject.Data;
 using WebProject.Models;
 
@@ -22,11 +24,17 @@ namespace WebProject.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Index(Message m)
         {
-            _context.Add(m);
-            _context.SaveChanges();
-            return RedirectToAction(nameof(Index));
+            if (ModelState.IsValid)
+            {
+                 _context.Add(m);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
+
         }
     }
 }

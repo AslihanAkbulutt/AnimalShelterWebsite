@@ -26,8 +26,4 @@
     <PackageReference Include="System.Resources.Writer" Version="4.3.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\images\" />
-  </ItemGroup>
-
 </Project>

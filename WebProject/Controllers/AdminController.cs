@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Drawing;
 using WebProject.Data;
 using WebProject.Models;
 
@@ -23,10 +24,15 @@ namespace WebProject.Controllers
         public IActionResult EditAnimals()
         {
             List<Animal> list = _context.Animals.ToList();
+            if (list.Count == 0)
+            {
+                return NotFound();
+            }
             return View(list);
         }
         
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(Animal a)
         {
             /*Animal animal = new Animal();
@@ -43,11 +49,13 @@ namespace WebProject.Controllers
             animal.Age = a.Age;
             animal.Info = a.Info;
             animal.CorD = a.CorD;*/
-
-            _context.Add(a);
-            _context.SaveChanges();
-            return RedirectToAction(nameof(EditAnimals));
-
+            if (ModelState.IsValid)
+            {
+                _context.Add(a);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(EditAnimals));
+            }
+            return View();
         }
         [HttpGet]
         public IActionResult Create()
@@ -58,28 +66,58 @@ namespace WebProject.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
+            if (id == null)
+            {
+                return NotFound();
+            }
             var delete = await _context.Animals.FindAsync(id);
+            if (delete == null)
+            {
+                return NotFound();
+            }
             _context.Remove(delete);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(EditAnimals));
         }
         [HttpGet]
+
         public IActionResult Edit(int id)
         {
+            if (id == null)
+            {
+                return NotFound();
+            }
             var edit = _context.Animals.Find(id);
+            if(edit == null)
+            {
+                return NotFound();
+            }
             return View(edit);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Edit(Animal a)
         {
-            _context.Update(a);
-            _context.SaveChanges();
-            return RedirectToAction(nameof(EditAnimals));
+           if(ModelState.IsValid)
+           {
+                _context.Update(a);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(EditAnimals));
+           }
+            return View();
         }
         [HttpGet]
         public IActionResult Details(int id)
         {
+            if(id == null)
+            {
+                return NotFound();   
+            }
             var details = _context.Animals.Find(id);
+            if(details == null)
+            {
+                return NotFound();
+            }
             return View(details);
         }
     }
