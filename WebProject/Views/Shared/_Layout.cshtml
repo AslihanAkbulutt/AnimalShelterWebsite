@@ -59,22 +59,23 @@
                 <p>Photo Gallery</p>
             </div>
             <div class="images">
-                <a class="image-link" asp-area="" asp-controller="Ilanlar" asp-action="CatAdopt">
+                <a class="image-link">
                     <div class="image" data-label="Cats"><img src="~/img/cat2.jpg" alt=""></div>
                 </a>
-                <a class="image-link" asp-area="" asp-controller="Ilanlar" asp-action="DogAdopt">
+                <a class="image-link">
                     <div class="image" data-label="Dogs"><img src="~/img/dog.jpg" alt=""></div>
                 </a>
-                <a class="image-link" asp-area="" asp-controller="Ilanlar" asp-action="DogAdopt">
+                <a class="image-link">
                     <div class="image" data-label="Dogs"><img src="~/img/dog2.jpg" alt=""></div>
                 </a>
-                <a class="image-link" asp-area="" asp-controller="Ilanlar" asp-action="CatAdopt">
+                <a class="image-link">
                     <div class="image" data-label="Cats"><img src="~/img/cats/siyam.jpg" alt=""></div>
                 </a>
             </div>
         </div>
     </div>
 </div>
+
 <div>@RenderBody()</div>
 
 @await RenderSectionAsync("Scripts", required: false)

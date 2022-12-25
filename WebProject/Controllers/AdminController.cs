@@ -18,9 +18,27 @@ namespace WebProject.Controllers
         }
         public IActionResult EditUsers()
         {
-            return View();
+            var list = _context.Users.ToList();
+            if(list.Count==0)
+            {
+                return NotFound();
+            }
+            List<Kullanici> liste = new List<Kullanici>();
+            foreach(var user in list)
+            {
+                Kullanici k = new Kullanici();
+                string id = user.Id;
+                k.Id = id;
+                k.Name = user.Name;
+                k.LastName = user.Lastname;
+                k.Mail = user.Email;
+                liste.Add(k);
+            }
+            return View(liste);
         }
         
+
+        //--------------------------------------------------------
         public IActionResult EditAnimals()
         {
             List<Animal> list = _context.Animals.ToList();

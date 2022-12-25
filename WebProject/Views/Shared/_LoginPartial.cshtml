@@ -1,16 +1,16 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @inject SignInManager<UserDetails> SignInManager
 @inject UserManager<UserDetails> UserManager
-
+<link rel="stylesheet" href="~/css/menu.css" />
 
 @if (SignInManager.IsSignedIn(User))
 {
     <li class="menu-nav-item">
-        <a  class="menu-nav-link " asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
+        <a  class="menu-nav-link " asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity?.Name</a>
     </li>
     <li class="menu-nav-item">
         <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "About", new { area = "" })">
-            <button  type="submit" class="nav-link btn menu-nav-item btn-link ">Logout</button>
+            <button  type="submit" class="menu-nav-link btn menu-nav-item btn-link ">Logout</button>
         </form>
     </li>
 }
