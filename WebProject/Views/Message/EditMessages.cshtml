@@ -1,24 +1,23 @@
 ﻿@model IEnumerable<WebProject.Models.Message>
 <link href="~/css/admin.css" rel="stylesheet" />
-
-<h1>Edit Messages</h1>
+@inject LanguageService language
+<h1>@language.GetKey("messagetitle")</h1>
 
 <p>
-    <a style="margin-left:100px" asp-action="Create">Create New</a>
+    <a style="margin-left:100px" asp-action="Create">@language.GetKey("messagecreate")</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @language.GetKey("messagename")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Mail)
+                @language.GetKey("messagemail")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Messages)
+                @language.GetKey("messagemessage")
             </th>
-            
         </tr>
     </thead>
     <tbody>
@@ -35,9 +34,9 @@
                     @Html.DisplayFor(modelItem => item.Messages)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id">@language.GetKey("messageedit")</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">@language.GetKey("messagedetails")</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">@language.GetKey("messagedelete")</a>
                 </td>
             </tr>
         }

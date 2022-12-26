@@ -1,4 +1,4 @@
-﻿
+﻿@inject LanguageService language
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,14 +23,14 @@
             <li class="menu-nav-item">
                 <a class="menu-nav-link" asp-area="" asp-controller="About" asp-action="Index">
                     <span>
-                        <div>Home</div>
+                        <div>@language.GetKey("home")</div>
                     </span>
                 </a>
             </li>
             <li class="menu-nav-item">
                 <a class="menu-nav-link" asp-area="" asp-controller="Adoption" asp-action="Index">
                     <span>
-                        <div>Adoption</div>
+                        <div>@language.GetKey("adoption")</div>
                     </span>
                 </a>
             </li>
@@ -42,9 +42,9 @@
                         <div style="background-color: rgb(26 30 35); " class="w3-dropdown-hover">
                             <button class="w3-button menu-nav-link">Admin</button>
                             <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                                <a asp-area="" asp-controller="Admin" asp-action="EditUsers" class="w3-bar-item w3-button">Edit Users</a>
-                                <a asp-area="" asp-controller="Admin" asp-action="EditAnimals" class="w3-bar-item w3-button">Edit Animals</a>
-                                <a asp-area="" asp-controller="Message" asp-action="EditMessages" class="w3-bar-item w3-button">Edit Messages</a>
+                                <a asp-area="" asp-controller="Admin" asp-action="EditUsers" class="w3-bar-item w3-button">@language.GetKey("users")</a>
+                                <a asp-area="" asp-controller="Admin" asp-action="EditAnimals" class="w3-bar-item w3-button">@language.GetKey("animals")</a>
+                                <a asp-area="" asp-controller="Message" asp-action="EditMessages" class="w3-bar-item w3-button">@language.GetKey("messages")</a>
                             </div>
                         </div>
                     </li>
@@ -52,6 +52,16 @@
             }
             
             <partial name="_LoginPartial" />
+
+            <li class="menu-nav-item">
+                <div style="background-color: rgb(26 30 35); " class="w3-dropdown-hover">
+                    <button class="w3-button menu-nav-link"><i class="fa fa-globe" style="color:white"></i></button>
+                    <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                        <a asp-area="" asp-controller="About" asp-action="ChangeLanguage" asp-route-culture="en-US" class="w3-bar-item w3-button">English</a>
+                        <a asp-area="" asp-controller="About" asp-action="ChangeLanguage" asp-route-culture="tr-TR" class="w3-bar-item w3-button">Turkish</a>
+                    </div>
+                </div>
+            </li>
         </ul>
         
         <div class="gallery">

@@ -1,23 +1,24 @@
 ﻿@model IEnumerable<WebProject.Models.Kullanici>
-
+@inject LanguageService language
 @{
     ViewData["Title"] = "Listed Animals";
 }
 <link href="~/css/admin.css" rel="stylesheet" />
-<h1>Listed Users</h1>
+
 
 
 <table class="table">
+    <h1 style="color:white">@language.GetKey("usertitle")</h1>
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @language.GetKey("username")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.LastName)
+                @language.GetKey("userlastname")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Mail)
+                @language.GetKey("usermail")
             </th>
         </tr>
     </thead>

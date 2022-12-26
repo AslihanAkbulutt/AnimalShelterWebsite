@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System.Globalization;
+using System.Reflection;
 using WebProject.Data;
 using WebProject.Models;
 
@@ -23,30 +24,33 @@ builder.Services.AddIdentity<UserDetails, IdentityRole>()
 
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddLocalization(opt => { opt.ResourcesPath = "Resources"; });
+builder.Services.AddSingleton<LanguageService>();
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+
 builder.Services.AddMvc()
-    .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
-    .AddDataAnnotationsLocalization();
-
-builder.Services.Configure<RequestLocalizationOptions>(options =>
-{
-    var supportedCultures = new List<CultureInfo>
+    .AddMvcLocalization()
+    .AddDataAnnotationsLocalization(options =>
     {
-                    new CultureInfo("tr"),
-                    new CultureInfo("en"),
+        options.DataAnnotationLocalizerProvider = (type, factory) =>
+        {
+            var assemblyName = new AssemblyName(typeof(ShareResource).GetTypeInfo().Assembly.FullName);
+            return factory.Create("ShareResource", assemblyName.Name);
+        };
+    });
 
-                };
-    options.DefaultRequestCulture = new RequestCulture("tr");
-    options.SupportedCultures = supportedCultures;
-    options.SupportedUICultures = supportedCultures;
-
-    options.RequestCultureProviders = new List<IRequestCultureProvider>
+builder.Services.Configure<RequestLocalizationOptions>(
+    options =>
     {
-        new QueryStringRequestCultureProvider(),
-        new CookieRequestCultureProvider(),
-        new AcceptLanguageHeaderRequestCultureProvider()
-    };
-});
+        var supportedCultures = new List<CultureInfo>
+        { 
+            new CultureInfo("en-US"),
+            new CultureInfo("tr-TR"),
+        };
+        options.DefaultRequestCulture = new RequestCulture(culture: "en-US", uiCulture: "en-US");
+        options.SupportedCultures = supportedCultures;
+        options.SupportedUICultures = supportedCultures;
+        options.RequestCultureProviders.Insert(0, new QueryStringRequestCultureProvider());
+    });
 
 
 var app = builder.Build();
@@ -63,6 +67,8 @@ else
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+var options = app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>();
+app.UseRequestLocalization(options.Value);
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

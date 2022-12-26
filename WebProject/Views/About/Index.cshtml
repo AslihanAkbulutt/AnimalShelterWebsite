@@ -5,16 +5,17 @@
     }
 </style>
 <!-- Top menu -->
+@inject LanguageService language
+
 <div class="w3-top">
     <div class="w3-white w3-xlarge" style="max-width:1535px">
         <div class="w3-button w3-padding-16 w3-left"></div>
         <div class="w3-right w3-padding-16"></div>
-        <div class="w3-center w3-padding-16" style="padding-top:10px">Home Page</div>
+        <div class="w3-center w3-padding-16" style="padding-top:10px">@language.GetKey("title")</div>
     </div>
 </div>
 <div class="myslide">
     <img src="~/img/back2.jpg" style="width:100%" />
-    
 </div>
 <div class="myslide">
     <img  src="~/img/back3.jpg" style="width:100%" />
@@ -30,8 +31,8 @@
     </div>
 
     <div class="w3-col m6 w3-padding-large">
-        <h1 class="w3-center">About Us</h1><br>
-        <h5 class="w3-center">Tradition since 1990</h5>
+        <h1 class="w3-center">@language.GetKey("aboutus")</h1><br>
+        <h5 class="w3-center">@language.GetKey("since")</h5>
         <p class="w3-large">The Catering was founded in blabla by Mr. Smith in lorem ipsum dolor sit amet, consectetur adipiscing elit consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute iruredolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.We only use <span class="w3-tag w3-light-grey">seasonal</span> ingredients.</p>
         <p class="w3-large w3-text-grey w3-hide-medium">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
@@ -68,11 +69,11 @@
 
 
 <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
-    <h2 class="w3-wide w3-center">CONTACT</h2>
-    <p class="w3-opacity w3-center"><i>Have Question? Drop a note!</i></p>
+    <h2 class="w3-wide w3-center">@language.GetKey("contact")</h2>
+    <p class="w3-opacity w3-center"><i>@language.GetKey("contactsoru")</i></p>
     <div class="w3-row w3-padding-32">
         <div class="w3-col m6 w3-large w3-margin-bottom">
-            <i class="fa fa-map-marker" style="width:30px"></i> Chicago, US<br>
+            <i class="fa fa-map-marker" style="width:30px"></i> Sakarya, TÜRKİYE<br>
             <i class="fa fa-phone" style="width:30px"></i> Phone: +00 151515<br>
             <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
         </div>
@@ -80,24 +81,24 @@
             <form asp-action="Index" asp-controller="About" method="post">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
-                    <label asp-for="Name" class="control-label"></label>
+                    <label asp-for="Name" class="control-label">@language.GetKey("contactname")</label>
                     <input asp-for="Name" class="form-control" />
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Mail" class="control-label"></label>
+                    <label asp-for="Mail" class="control-label">@language.GetKey("contactmail")</label>
                     <input asp-for="Mail" class="form-control" />
                     <span asp-validation-for="Mail" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="Messages" class="control-label"></label>
+                    <label asp-for="Messages" class="control-label">@language.GetKey("contactmessage")</label>
                     <input asp-for="Messages" class="form-control" />
                     <span asp-validation-for="Messages" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <input type="submit" value="SEND" class="w3-button w3-black w3-section" />
+                    <input type="submit" value=@language.GetKey("contactbutton") class="w3-button w3-black w3-section" />
                 </div>
             </form>
         </div>
