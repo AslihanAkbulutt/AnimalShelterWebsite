@@ -1,0 +1,36 @@
+﻿@model WebProject.Models.Message
+@inject LanguageService language
+@{
+    ViewData["Title"] = "Details";
+}
+<link href="~/css/admin.css" rel="stylesheet" />
+
+
+<div class="login-form">
+    
+    <dl class="row">
+        <h1 style="color:white">@language.GetKey("Mdetailtitle")</h1>
+        <dt class="col-sm-2">
+            @language.GetKey("messagename")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @language.GetKey("messagemail")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Mail)
+        </dd>
+        <dt class="col-sm-2">
+            @language.GetKey("messagemessage")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Messages)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">@language.GetKey("messageedit")</a> |
+    <a asp-action="Index">@language.GetKey("messageback")</a>
+</div>

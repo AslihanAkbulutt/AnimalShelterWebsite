@@ -120,6 +120,9 @@
   <data name="aboutus" xml:space="preserve">
     <value>Hakkımızda</value>
   </data>
+  <data name="Acreatetitle" xml:space="preserve">
+    <value>OLUŞTUR</value>
+  </data>
   <data name="adoptbutton" xml:space="preserve">
     <value>Sahiplen</value>
   </data>
@@ -196,7 +199,7 @@
     <value>Telefon No</value>
   </data>
   <data name="formtitle" xml:space="preserve">
-    <value>Adoption Form</value>
+    <value>Sahiplenme Formu</value>
   </data>
   <data name="formusername" xml:space="preserve">
     <value>E-Mail</value>
@@ -262,7 +265,7 @@
     <value>Mesajlar</value>
   </data>
   <data name="messagesave" xml:space="preserve">
-    <value>8</value>
+    <value>KAYDET</value>
   </data>
   <data name="messagetitle" xml:space="preserve">
     <value>MESAJLAR</value>

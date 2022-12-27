@@ -3,10 +3,17 @@
 @{
     ViewData["Title"] = "Application";
 }
-<link href="~/css/admin.css" rel="stylesheet" />
+<link href="~/css/adopt.css" rel="stylesheet" />
 
-<form  class="login-form" asp-action="AdoptForm" asp-controller="Adoption" method="post">
-    <h1 style="color:white">@language.GetKey("formtitle")</h1>
+<body> 
+    <form  class="login-form" asp-action="AdoptForm" asp-controller="Adoption" method="post">
+        <div class="w3-top">
+            <div class="w3-white w3-xlarge" style="max-width:1535px; margin-left:0px;">
+                <div class="w3-button w3-padding-16 w3-left"></div>
+                <div class="w3-right w3-padding-16"></div>
+                <div class="w3-center w3-padding-16" style="padding-top:10px">@language.GetKey("formtitle")</div>
+            </div>
+        </div>
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="w3-row ">
         <div style=" padding-right:20px" class="w3-col m6">
@@ -53,6 +60,8 @@
         <a asp-action="Index">@language.GetKey("formback")</a>
     </div>
 </form>
+</body>
+
  
 
 @section Scripts {

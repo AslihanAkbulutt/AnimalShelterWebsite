@@ -43,8 +43,8 @@
                             <button class="w3-button menu-nav-link">Admin</button>
                             <div class="w3-dropdown-content w3-bar-block w3-card-4">
                                 <a asp-area="" asp-controller="Admin" asp-action="EditUsers" class="w3-bar-item w3-button">@language.GetKey("users")</a>
-                                <a asp-area="" asp-controller="Admin" asp-action="EditAnimals" class="w3-bar-item w3-button">@language.GetKey("animals")</a>
-                                <a asp-area="" asp-controller="Message" asp-action="EditMessages" class="w3-bar-item w3-button">@language.GetKey("messages")</a>
+                                <a asp-area="" asp-controller="CallAnimalAPI" asp-action="Index" class="w3-bar-item w3-button">@language.GetKey("animals")</a>
+                                <a asp-area="" asp-controller="CallMessagesAPI" asp-action="Index" class="w3-bar-item w3-button">@language.GetKey("messages")</a>
                             </div>
                         </div>
                     </li>

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Certificate;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
@@ -52,6 +53,9 @@ builder.Services.Configure<RequestLocalizationOptions>(
         options.RequestCultureProviders.Insert(0, new QueryStringRequestCultureProvider());
     });
 
+builder.Services.AddAuthentication(
+        CertificateAuthenticationDefaults.AuthenticationScheme)
+    .AddCertificate();
 
 var app = builder.Build();
 

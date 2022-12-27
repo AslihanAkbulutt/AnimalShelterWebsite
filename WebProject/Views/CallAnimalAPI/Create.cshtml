@@ -1,0 +1,51 @@
+﻿@model WebProject.Models.Animal
+@inject LanguageService language
+@{
+    ViewData["Title"] = "Create";
+}
+<link href="~/css/admin.css" rel="stylesheet" />
+
+
+
+<form class="login-form" asp-action="Create" asp-controller="CallAnimalAPI" method="post" enctype="multipart/form-data">
+    <h1 style="color:white">@language.GetKey("Acreatetitle")</h1>
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Breed" class="control-label">@language.GetKey("animalbreed")</label>
+        <input asp-for="Breed" class="form-control" />
+        <span asp-validation-for="Breed" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Age" class="control-label">@language.GetKey("animalage")</label>
+        <input asp-for="Age" class="form-control" />
+        <span asp-validation-for="Age" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Image" class="control-label">@language.GetKey("animalimage")</label>
+        <input asp-for="Image" class="form-control" />
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Info" class="control-label">@language.GetKey("animalinfo")</label>
+        <input asp-for="Info" class="form-control" />
+        <span asp-validation-for="Info" class="text-danger"></span>
+    </div>
+    <div class="form-group form-check">
+        <label class="form-check-label">
+            @language.GetKey("animalcord")
+            <input class="form-check-input" asp-for="CorD" /> 
+        </label>
+    </div>
+    <div class="form-group">
+        <input type="submit" value=@language.GetKey("animalbutton") class="btn btn-primary" />
+        <a asp-action="Index">@language.GetKey("messageback")</a>
+    </div>
+   
+</form>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
