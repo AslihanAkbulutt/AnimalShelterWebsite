@@ -1,0 +1,58 @@
+﻿@model WebProject.Models.Application
+@inject LanguageService language
+@{
+    ViewData["Title"] = "Edit";
+}
+<link href="~/css/admin.css" rel="stylesheet" />
+
+
+<form style="background-color:rgb(26, 30 ,35);" class="login-form" asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" />
+    <h1 style="color:white">@language.GetKey("Medittitle")</h1>
+    <div class="form-group">
+        <label asp-for="UserName" class="control-label">@language.GetKey("appusername")</label>
+        <input asp-for="UserName" class="form-control" />
+        <span asp-validation-for="UserName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="AnimalId" class="control-label">@language.GetKey("appanimal")</label>
+        <input asp-for="AnimalId" class="form-control" />
+        <span asp-validation-for="AnimalId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">@language.GetKey("appname")</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="LastName" class="control-label">@language.GetKey("applastname")</label>
+        <input asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Adress" class="control-label">@language.GetKey("appaddress")</label>
+        <input asp-for="Adress" class="form-control" />
+        <span asp-validation-for="Adress" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PhoneNo" class="control-label">@language.GetKey("appphone")</label>
+        <input asp-for="PhoneNo" class="form-control" />
+        <span asp-validation-for="PhoneNo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Explanation" class="control-label">@language.GetKey("appexp")</label>
+        <input asp-for="Explanation" class="form-control" />
+        <span asp-validation-for="Explanation" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <input type="submit" value=@language.GetKey("messagesave") class="btn btn-primary" />
+        <a asp-action="Index">@language.GetKey("messageback")</a>
+    </div>
+</form>
+  
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

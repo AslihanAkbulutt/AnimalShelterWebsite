@@ -3,6 +3,18 @@
 @{
     ViewData["Title"] = "Confirm email";
 }
-
+<style>
+.message
+{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(26, 30,35);
+        color:white;
+}
+</style>
 <h1>@ViewData["Title"]</h1>
-<partial name="_StatusMessage" model="Model.StatusMessage" />
+<div class="message">
+    <partial name="_StatusMessage" model="Model.StatusMessage" />
+</div>
+

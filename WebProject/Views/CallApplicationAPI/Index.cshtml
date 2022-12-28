@@ -1,0 +1,82 @@
+﻿@model IEnumerable<WebProject.Models.Application>
+@inject LanguageService language
+@{
+    ViewData["Title"] = "Listed Animals";
+}
+<link href="~/css/admin.css" rel="stylesheet" />
+<h1 style="color:white">@language.GetKey("apptitle")</h1>
+<style>
+    .table td {
+        padding: 12px 40px;
+        color: white;
+    }
+
+    .table th {
+        padding: 12px 73px;
+        color: white;
+    }
+</style>
+<p>
+    <a asp-controller="Adoption" asp-action="Index">@language.GetKey("appcreate")</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @language.GetKey("appusername")
+            </th>
+            <th>
+                @language.GetKey("appanimal")
+            </th>
+            <th>
+                @language.GetKey("appname")
+            </th>
+            <th>
+                @language.GetKey("applastname")
+            </th>
+            <th>
+                @language.GetKey("appaddress")
+            </th>
+            <th>
+                @language.GetKey("appphone")
+            </th>
+            <th>
+                @language.GetKey("appexp")
+
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnimalId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Explanation)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">@language.GetKey("messageedit")</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">@language.GetKey("messagedetails")</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">@language.GetKey("messagedelete")</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

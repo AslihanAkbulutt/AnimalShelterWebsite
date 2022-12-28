@@ -1,4 +1,4 @@
-﻿@model WebProject.Models.Animal
+﻿@model WebProject.Models.Application
 @inject LanguageService language
 @{
     ViewData["Title"] = "Details";
@@ -10,34 +10,46 @@
     <dl class="row">
         <h1 style="color:white">@language.GetKey("Mdetailtitle")</h1>
         <dt class="control-label col-sm-2">
-            @language.GetKey("animalbreed")
+            @language.GetKey("appusername")
         </dt>
         <dd class="form-control col-sm-10">
-            @Html.DisplayFor(model => model.Breed)
+            @Html.DisplayFor(model => model.UserName)
         </dd>
         <dt class="control-label col-sm-2">
-            @language.GetKey("animalage")
+            @language.GetKey("appanimal")
         </dt>
         <dd class="form-control col-sm-10">
-            @Html.DisplayFor(model => model.Age)
+            @Html.DisplayFor(model => model.AnimalId)
         </dd>
         <dt class="control-label col-sm-2">
-            @language.GetKey("animalinfo")
+            @language.GetKey("appname")
         </dt>
         <dd class="form-control col-sm-10">
-            @Html.DisplayFor(model => model.Info)
+            @Html.DisplayFor(model => model.Name)
         </dd>
         <dt class="control-label col-sm-2">
-            @language.GetKey("animalimage")
+            @language.GetKey("applastname")
         </dt>
         <dd class="form-control col-sm-10">
-            @Html.DisplayFor(model => model.Image)
+            @Html.DisplayFor(model => model.LastName)
         </dd>
         <dt class="control-label col-sm-2">
-            @language.GetKey("animalcord")
+            @language.GetKey("appaddress")
         </dt>
         <dd class="form-control col-sm-10">
-            @Html.DisplayFor(model => model.CorD)
+            @Html.DisplayFor(model => model.Adress)
+        </dd>
+        <dt class="control-label col-sm-2">
+            @language.GetKey("appphone")
+        </dt>
+        <dd class="form-control col-sm-10">
+            @Html.DisplayFor(model => model.PhoneNo)
+        </dd>
+        <dt class="control-label col-sm-2">
+            @language.GetKey("appexp")
+        </dt>
+        <dd class="form-control col-sm-10">
+            @Html.DisplayFor(model => model.Explanation)
         </dd>
 
     </dl>

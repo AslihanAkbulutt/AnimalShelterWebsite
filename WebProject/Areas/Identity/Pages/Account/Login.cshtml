@@ -3,7 +3,7 @@
 @inject LanguageService language
 <link href="~/css/login.css" rel="stylesheet" />
 
-<form style="width:350px;" class="login-form" id="account" method="post">
+<form style="background-color:rgb(26, 30 ,35); width:350px;" class="login-form" id="account" method="post">
     <h2>@language.GetKey("logintitle")</h2>
     <hr />
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -27,7 +27,7 @@
         </div>
     </div>
     <div>
-        <button id="login-submit" type="submit" class="btn btn-primary">@language.GetKey("loginbutton")</button>
+        <button style="background-color:white; color:black;" id="login-submit" type="submit" class="btn btn-primary">@language.GetKey("loginbutton")</button>
     </div>
     
 </form>

@@ -159,6 +159,39 @@
   <data name="animaltitle" xml:space="preserve">
     <value>ANIMALS</value>
   </data>
+  <data name="appaddress" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="appanimal" xml:space="preserve">
+    <value>Animal Id</value>
+  </data>
+  <data name="appcreate" xml:space="preserve">
+    <value>Create Application</value>
+  </data>
+  <data name="appexp" xml:space="preserve">
+    <value>Explanation</value>
+  </data>
+  <data name="applastname" xml:space="preserve">
+    <value>Lastname</value>
+  </data>
+  <data name="applications" xml:space="preserve">
+    <value>Applications</value>
+  </data>
+  <data name="appname" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="appphone" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
+  <data name="apptitle" xml:space="preserve">
+    <value>APPLICATIONS</value>
+  </data>
+  <data name="appusername" xml:space="preserve">
+    <value>Mail</value>
+  </data>
+  <data name="branches" xml:space="preserve">
+    <value>Our Branches</value>
+  </data>
   <data name="contact" xml:space="preserve">
     <value>CONTACT</value>
   </data>

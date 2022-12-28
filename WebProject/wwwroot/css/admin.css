@@ -7,7 +7,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('../img/back.jpg');
+    background-color:rgb(26, 30 ,35);
     font-family: 'Times New Roman', Times, serif;
 }
 
@@ -33,7 +33,7 @@ table {
 }
 
 a{
-    color: teal;
+    color: yellow;
     font-size:18px;
 }
 a:hover{

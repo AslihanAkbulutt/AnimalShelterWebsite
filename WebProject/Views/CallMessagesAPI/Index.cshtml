@@ -1,21 +1,21 @@
 ﻿@model IEnumerable<WebProject.Models.Message>
 <link href="~/css/admin.css" rel="stylesheet" />
 @inject LanguageService language
-<h1>@language.GetKey("messagetitle")</h1>
+<h1 style="color:white;">@language.GetKey("messagetitle")</h1>
 
 <p>
-    <a style="margin-left:100px" asp-action="Create">@language.GetKey("messagecreate")</a>
+    <a style="margin-left:50px" asp-action="Create">@language.GetKey("messagecreate")</a>
 </p>
 <table class="table">
-    <thead>
+    <thead >
         <tr>
-            <th>
+            <th style ="padding:12px 120px;">
                 @language.GetKey("messagename")
             </th>
-            <th>
+            <th style="padding:12px 120px;">
                 @language.GetKey("messagemail")
-            </th>
-            <th>
+            </th >
+            <th style="padding:12px 150px;">
                 @language.GetKey("messagemessage")
             </th>
         </tr>

@@ -159,6 +159,39 @@
   <data name="animaltitle" xml:space="preserve">
     <value>HAYVANLAR</value>
   </data>
+  <data name="appaddress" xml:space="preserve">
+    <value>Adres</value>
+  </data>
+  <data name="appanimal" xml:space="preserve">
+    <value>Hayvan No</value>
+  </data>
+  <data name="appcreate" xml:space="preserve">
+    <value>Başvuru Oluştur</value>
+  </data>
+  <data name="appexp" xml:space="preserve">
+    <value>Açıklama</value>
+  </data>
+  <data name="applastname" xml:space="preserve">
+    <value>Soyad</value>
+  </data>
+  <data name="applications" xml:space="preserve">
+    <value>Başvurular</value>
+  </data>
+  <data name="appname" xml:space="preserve">
+    <value>Ad</value>
+  </data>
+  <data name="appphone" xml:space="preserve">
+    <value>Telefon No</value>
+  </data>
+  <data name="apptitle" xml:space="preserve">
+    <value>BAŞVURULAR</value>
+  </data>
+  <data name="appusername" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
+  <data name="branches" xml:space="preserve">
+    <value>Şubelerimiz</value>
+  </data>
   <data name="contact" xml:space="preserve">
     <value>İLETİŞİM</value>
   </data>
