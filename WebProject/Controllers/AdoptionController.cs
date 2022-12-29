@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 using WebProject.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebProject.Controllers
 {
@@ -28,7 +29,7 @@ namespace WebProject.Controllers
             }
             return View(list);
         }
-        
+        [Authorize]
         [HttpGet]
         public IActionResult AdoptForm(int id)
         {
@@ -39,6 +40,7 @@ namespace WebProject.Controllers
             Id = id;
             return View();
         }
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> AdoptForm(Application a)
         {
