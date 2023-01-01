@@ -1,8 +1,12 @@
 # WebProject
 Aslıhan AKBULUT
+
 G201210080 1C
+
 Barinak Web Sitesi
+
 Web Programlama Proje Ödevi
+
 Projem barınak ve hayvan sahiplenme web sitesidir. Bu web sitesinde üye giriş
 ve kayıt işlemleri yapılabiliyor. Ayrıca kişi hayvan ilanlarına bakıp hayvan
 sahiplenebiliyor. Kişinin hayvan sahiplenmesi için üye olup giriş yapması
